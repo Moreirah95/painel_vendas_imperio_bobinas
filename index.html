@@ -41,9 +41,7 @@
     padding-bottom:18px; margin-bottom:28px;
     flex-wrap:wrap; gap:16px;
   }
-  .brand-block{
-    display:flex; align-items:center; gap:18px;
-  }
+  .brand-block{display:flex; align-items:center; gap:18px;}
   .brand-logo{
     width:72px; height:72px; border-radius:50%; flex-shrink:0;
     border:2px solid var(--wood); box-shadow:0 0 0 4px rgba(181,112,58,0.12);
@@ -61,36 +59,8 @@
   .subtitle{font-size:14px; color:var(--cream-dim); margin-top:6px; max-width:560px;}
   .header-stats{display:flex; gap:28px;}
   .hstat{text-align:right;}
-  .hstat .n{font-family:'Archivo','Segoe UI',Arial,sans-serif; font-weight:700; font-size:26px; color:var(--wood-light); line-height:1; transition:color .2s;}
-  .hstat .n.is-filtered{color:#e8b272;}
+  .hstat .n{font-family:'Archivo','Segoe UI',Arial,sans-serif; font-weight:700; font-size:26px; color:var(--wood-light); line-height:1;}
   .hstat .l{font-family:'JetBrains Mono','Courier New',monospace; font-size:10px; letter-spacing:.1em; color:var(--steel); text-transform:uppercase; margin-top:4px;}
-
-  /* FILTER BAR */
-  .filterbar{
-    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
-    background:var(--bg-panel); border:1px solid var(--line); border-radius:8px;
-    padding:14px 18px; margin-bottom:26px;
-  }
-  .filterbar .flabel{
-    font-family:'JetBrains Mono','Courier New',monospace; font-size:10.5px; letter-spacing:.1em;
-    color:var(--steel); text-transform:uppercase; white-space:nowrap;
-  }
-  select{
-    background:var(--bg-panel2); color:var(--cream); border:1px solid var(--line);
-    border-radius:5px; padding:8px 12px; font-family:'Archivo Narrow','Segoe UI',Arial,sans-serif; font-size:13.5px;
-    min-width:240px; cursor:pointer;
-  }
-  select:focus{outline:2px solid var(--wood-light); outline-offset:1px;}
-  .reset-btn{
-    background:transparent; border:1px solid var(--wood-dark); color:var(--wood-light);
-    font-family:'JetBrains Mono','Courier New',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
-    padding:8px 14px; border-radius:5px; cursor:pointer; transition:.15s;
-  }
-  .reset-btn:hover{background:var(--wood-dark); color:var(--cream);}
-  .active-pill{
-    margin-left:auto; font-family:'JetBrains Mono','Courier New',monospace; font-size:11px; color:var(--cream-dim);
-  }
-  .active-pill b{color:var(--wood-light);}
 
   /* PANEL GRID */
   .grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
@@ -113,8 +83,67 @@
     font-family:'Archivo','Segoe UI',Arial,sans-serif; font-weight:700; font-size:17px; color:var(--cream);
     margin-top:2px;
   }
-  .panel-sub{font-size:12.5px; color:var(--cream-dim); margin-bottom:16px; margin-top:2px;}
+  .panel-sub{font-size:12.5px; color:var(--cream-dim); margin-bottom:14px; margin-top:2px;}
   .panel-foot{font-size:11px; color:var(--steel); margin-top:14px; font-family:'JetBrains Mono','Courier New',monospace;}
+
+  /* PANEL-LOCAL FILTER ROW */
+  .panel-filters{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    background:var(--bg-panel2); border:1px solid var(--line); border-radius:7px;
+    padding:10px 12px; margin-bottom:16px;
+  }
+  .panel-filters .flabel{
+    font-family:'JetBrains Mono','Courier New',monospace; font-size:10px; letter-spacing:.08em;
+    color:var(--steel); text-transform:uppercase; white-space:nowrap;
+  }
+  select{
+    background:#221e18; color:var(--cream); border:1px solid var(--line);
+    border-radius:5px; padding:7px 10px; font-family:'Archivo Narrow','Segoe UI',Arial,sans-serif; font-size:13px;
+    min-width:180px; cursor:pointer;
+  }
+  select:focus{outline:2px solid var(--wood-light); outline-offset:1px;}
+
+  /* year pill toggles */
+  .year-toggles{display:flex; gap:6px;}
+  .year-pill{
+    font-family:'JetBrains Mono','Courier New',monospace; font-size:11.5px;
+    background:#221e18; border:1px solid var(--line); color:var(--cream-dim);
+    padding:6px 12px; border-radius:14px; cursor:pointer; transition:.15s; user-select:none;
+  }
+  .year-pill.active{background:var(--wood-dark); border-color:var(--wood); color:var(--cream); font-weight:600;}
+  .year-pill:hover{border-color:var(--wood-light);}
+
+  .reset-btn{
+    background:transparent; border:1px solid var(--wood-dark); color:var(--wood-light);
+    font-family:'JetBrains Mono','Courier New',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    padding:7px 12px; border-radius:5px; cursor:pointer; transition:.15s; white-space:nowrap;
+  }
+  .reset-btn:hover{background:var(--wood-dark); color:var(--cream);}
+
+  /* multi-select client chips (panel 3/4) */
+  .client-multiselect{position:relative;}
+  .ms-box{
+    background:#221e18; border:1px solid var(--line); border-radius:5px;
+    padding:7px 10px; font-size:13px; color:var(--cream-dim); cursor:pointer;
+    min-width:260px; display:flex; justify-content:space-between; align-items:center; gap:8px;
+  }
+  .ms-box:hover{border-color:var(--wood-light);}
+  .ms-dropdown{
+    position:absolute; top:calc(100% + 4px); left:0; z-index:30;
+    background:#221e18; border:1px solid var(--wood-dark); border-radius:7px;
+    max-height:280px; overflow-y:auto; min-width:340px; box-shadow:0 8px 24px rgba(0,0,0,0.5);
+    padding:6px;
+  }
+  .ms-dropdown.hidden{display:none;}
+  .ms-option{
+    display:flex; align-items:center; gap:8px; padding:7px 8px; border-radius:4px; cursor:pointer; font-size:12.5px;
+  }
+  .ms-option:hover{background:var(--bg-panel2);}
+  .ms-option input{accent-color:var(--wood-light); cursor:pointer;}
+  .ms-option label{cursor:pointer; flex:1; color:var(--cream-dim);}
+  .ms-option.checked label{color:var(--wood-light); font-weight:600;}
+  .ms-dropdown::-webkit-scrollbar{width:6px;}
+  .ms-dropdown::-webkit-scrollbar-thumb{background:var(--wood-dark); border-radius:3px;}
 
   /* BAR ROWS (generic horizontal bars) */
   .bar-row{display:flex; align-items:center; gap:10px; margin-bottom:9px;}
@@ -132,8 +161,17 @@
     font-family:'JetBrains Mono','Courier New',monospace; font-size:11.5px; color:var(--cream); white-space:nowrap;
   }
 
-  /* CLIENT BARS (panel 4) — taller, full width */
-  .client-row{display:flex; align-items:center; gap:12px; margin-bottom:7px; cursor:pointer;}
+  /* Single-size highlight (panel 1 when filtered to one size) */
+  .single-size-card{
+    display:flex; align-items:center; gap:28px; padding:18px 6px 6px;
+  }
+  .ssc-number{font-family:'Archivo',sans-serif; font-weight:800; font-size:46px; color:var(--wood-light); line-height:1;}
+  .ssc-label{font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--steel); text-transform:uppercase; letter-spacing:.08em; margin-top:6px;}
+  .ssc-col{display:flex; flex-direction:column;}
+  .ssc-divider{width:1px; height:54px; background:var(--line);}
+
+  /* CLIENT BARS (panel 3/4) */
+  .client-row{display:flex; align-items:center; gap:12px; margin-bottom:7px;}
   .client-row .rank{
     width:22px; flex-shrink:0; font-family:'JetBrains Mono','Courier New',monospace; font-size:11px; color:var(--steel); text-align:right;
   }
@@ -141,16 +179,13 @@
     width:300px; flex-shrink:0; font-size:12.5px; color:var(--cream-dim);
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   }
-  .client-row.selected .lbl{color:var(--wood-light); font-weight:600;}
+  .client-row.highlighted .lbl{color:var(--wood-light); font-weight:600;}
   .client-track{flex:1; background:var(--bg-panel2); border-radius:4px; height:20px; position:relative; overflow:hidden;}
-  .client-fill{
-    height:100%; border-radius:4px; transition:width .5s cubic-bezier(.2,.8,.2,1);
-  }
+  .client-fill{height:100%; border-radius:4px; transition:width .5s cubic-bezier(.2,.8,.2,1);}
   .client-val{
     position:absolute; right:8px; top:0; bottom:0; display:flex; align-items:center;
     font-family:'JetBrains Mono','Courier New',monospace; font-size:11px; color:var(--cream); white-space:nowrap;
   }
-  .client-row:hover .client-track{outline:1px solid var(--wood-light);}
 
   /* TABLE (panel 2) */
   table{width:100%; border-collapse:collapse; font-size:12.5px;}
@@ -163,14 +198,13 @@
   tbody td{padding:7px 8px; border-bottom:1px solid var(--line); color:var(--cream-dim);}
   tbody td.num{text-align:right; font-family:'JetBrains Mono','Courier New',monospace; color:var(--cream);}
   tbody tr:hover{background:var(--bg-panel2);}
+  tbody tr.zero-row td{color:#5d564c;}
   tbody td.size-name{color:var(--wood-light); font-weight:600; font-family:'JetBrains Mono','Courier New',monospace;}
   .table-scroll{max-height:330px; overflow-y:auto;}
   .table-scroll::-webkit-scrollbar{width:6px;}
   .table-scroll::-webkit-scrollbar-thumb{background:var(--wood-dark); border-radius:3px;}
 
-  .legend-note{
-    font-size:11.5px; color:var(--steel); font-style:italic; margin-top:10px;
-  }
+  .legend-note{font-size:11.5px; color:var(--steel); font-style:italic; margin-top:10px;}
 
   footer{
     text-align:center; font-family:'JetBrains Mono','Courier New',monospace; font-size:10.5px; color:var(--steel);
@@ -199,39 +233,44 @@
       </div>
     </div>
     <div class="header-stats">
-      <div class="hstat"><div class="n" id="statValor">—</div><div class="l" id="statValorLabel">Faturado</div></div>
-      <div class="hstat"><div class="n" id="statQtd">—</div><div class="l" id="statQtdLabel">Bobinas</div></div>
+      <div class="hstat"><div class="n" id="statValor">—</div><div class="l">Faturado (total)</div></div>
+      <div class="hstat"><div class="n" id="statQtd">—</div><div class="l">Bobinas (total)</div></div>
       <div class="hstat"><div class="n" id="statClientes">—</div><div class="l">Clientes</div></div>
     </div>
   </header>
 
-  <div class="filterbar">
-    <span class="flabel">Filtrar por cliente</span>
-    <select id="filterCliente">
-      <option value="">Todos os clientes</option>
-    </select>
-    <span class="flabel">Filtrar por tamanho</span>
-    <select id="filterTamanho">
-      <option value="">Todos os tamanhos</option>
-    </select>
-    <button class="reset-btn" id="resetBtn">Limpar filtros</button>
-    <span class="active-pill" id="activePill"></span>
-  </div>
-
   <div class="grid">
 
+    <!-- PANEL 1 -->
     <div class="panel" id="panelSizes">
       <div class="panel-head"><span class="panel-num">01</span></div>
       <div class="panel-title">Quantidade vendida por tamanho de bobina</div>
-      <div class="panel-sub" id="sizeSub">Total de unidades vendidas, somando todas as notas fiscais</div>
+      <div class="panel-sub">Selecione um tamanho para ver o detalhe isolado, ou deixe em branco para comparar todos</div>
+      <div class="panel-filters">
+        <span class="flabel">Tamanho</span>
+        <select id="filterTamanho">
+          <option value="">Todos os tamanhos</option>
+        </select>
+        <button class="reset-btn" id="resetTamanhoBtn">Limpar</button>
+      </div>
       <div id="sizeBars"></div>
       <div class="panel-foot" id="sizeFoot"></div>
     </div>
 
+    <!-- PANEL 2 -->
     <div class="panel" id="panelTable">
       <div class="panel-head"><span class="panel-num">02</span></div>
       <div class="panel-title">Tamanhos comprados por cliente</div>
-      <div class="panel-sub">Selecione um cliente no filtro acima para detalhar — exibindo todos por padrão</div>
+      <div class="panel-sub">Filtre por cliente e/ou período — todos os 16 tamanhos já vendidos pela empresa aparecem listados</div>
+      <div class="panel-filters">
+        <span class="flabel">Cliente</span>
+        <select id="filterClienteP2">
+          <option value="">Todos os clientes</option>
+        </select>
+        <span class="flabel">Período</span>
+        <div class="year-toggles" id="yearTogglesP2"></div>
+        <button class="reset-btn" id="resetP2Btn">Limpar</button>
+      </div>
       <div class="table-scroll">
         <table>
           <thead><tr id="tableHead"></tr></thead>
@@ -240,15 +279,29 @@
       </div>
     </div>
 
+    <!-- PANEL 3/4 -->
     <div class="panel full" id="panelClients">
       <div class="panel-head">
         <span class="panel-num">03 · 04</span>
         <span class="panel-badge" id="clientsBadge" style="display:none;"></span>
       </div>
       <div class="panel-title" id="clientsTitle">Faturamento por cliente</div>
-      <div class="panel-sub" id="clientsSub">Ordenado do que mais comprou para o que menos comprou — clique numa barra para detalhar nos painéis acima</div>
+      <div class="panel-sub" id="clientsSub">Ordenado do que mais comprou para o que menos comprou</div>
+      <div class="panel-filters">
+        <span class="flabel">Clientes</span>
+        <div class="client-multiselect">
+          <div class="ms-box" id="msBox">
+            <span id="msBoxLabel">Todos os clientes</span>
+            <span style="color:var(--steel)">▾</span>
+          </div>
+          <div class="ms-dropdown hidden" id="msDropdown"></div>
+        </div>
+        <span class="flabel">Período</span>
+        <div class="year-toggles" id="yearTogglesP3"></div>
+        <button class="reset-btn" id="resetP3Btn">Limpar</button>
+      </div>
       <div id="clientBars"></div>
-      <div class="legend-note">Clique numa barra para isolar o cliente nos filtros · clique novamente para limpar</div>
+      <div class="legend-note" id="clientsLegend">Selecione clientes específicos no filtro acima para comparar apenas entre eles</div>
     </div>
 
   </div>
@@ -257,13 +310,16 @@
 </div>
 
 <script>
-const DATA = {"by_size": [{"tamanho": "65x25", "qtd": 18408, "valor": 1608285.65}, {"tamanho": "65x45", "qtd": 16074, "valor": 1582397.66}, {"tamanho": "80x45", "qtd": 11070, "valor": 1359479.24}, {"tamanho": "50x25", "qtd": 8775, "valor": 605448.95}, {"tamanho": "100x60", "qtd": 5199, "valor": 1467562.9}, {"tamanho": "125x70", "qtd": 1368, "valor": 557642.35}, {"tamanho": "65x40", "qtd": 964, "valor": 100966.0}, {"tamanho": "90x60", "qtd": 130, "valor": 25558.0}, {"tamanho": "125x60", "qtd": 93, "valor": 41202.0}, {"tamanho": "150x80", "qtd": 56, "valor": 41216.0}, {"tamanho": "125x100", "qtd": 47, "valor": 25918.0}, {"tamanho": "170x80", "qtd": 21, "valor": 20980.0}, {"tamanho": "125x80", "qtd": 20, "valor": 7960.0}, {"tamanho": "110x60", "qtd": 10, "valor": 3987.0}, {"tamanho": "150x100", "qtd": 2, "valor": 1740.0}, {"tamanho": "80x60", "qtd": 2, "valor": 339.8}], "tamanhos": ["50x25", "65x25", "65x40", "65x45", "80x45", "80x60", "90x60", "100x60", "110x60", "125x60", "125x70", "125x80", "125x100", "150x80", "150x100", "170x80"], "clientes": ["AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA", "BRASFIO INDUSTRIA E COMERCIO NORDESTE LTDA", "CABEL IND COM DE CONDUTORES ELETRICOS LTDA", "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "CABLENA DO BRASIL LTDA", "CABR CABOS FABRICACAO DE FIOS CABOS E CONDUTORES ELETRICOS", "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "COFIBAM CONDUTORES ELETRICOS LTDA", "CONDUFERES IND E COMERCIO DE CONDUTORES ELETRICOS LTDA", "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA", "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "DIPRO DO BRASIL LTDA", "EMPRESA BRASILEIRA DE LOCACAO DE EQUIPAMENTOS LTDA", "ENGEPER ENGENHARIA E PERFURACOES LTDA", "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "MMEDIATE COMERCIO DE FIOS E CABOS ESPECIAIS LTDA", "MPT FIOS E CABOS ESPECIAIS SA", "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "PRONTO EXPRESS LOGISTICA SA", "PWS BRASIL COMERCIAL LTDA", "REICHLE & DEMASSARI COMERCIO E INDUSTRIA LTDA", "SANTA LUIZA CONDUTORES ELETRICOS LTDA", "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA", "SPARFLEX FIOS E CABOS ESPECIAIS LTDA", "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "SUPPLIES EPIS SOLUCOES EM MRO LTDA", "UNIC DISTRIBUIDORA LTDA", "VIMACOM INDUSTRIA E COMERCIO LTDA"], "cliente_tamanho_matrix": {"AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA": {"50x25": {"qtd": 1, "valor": 70.5}, "65x25": {"qtd": 5, "valor": 425.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 87, "valor": 8482.5}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 5, "valor": 1367.5}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 1, "valor": 412.5}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "BRASFIO INDUSTRIA E COMERCIO NORDESTE LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 30, "valor": 4206.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 30, "valor": 8775.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 30, "valor": 13260.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "CABEL IND COM DE CONDUTORES ELETRICOS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 30, "valor": 8670.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 515, "valor": 43075.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 665, "valor": 62685.84}, "80x45": {"qtd": 780, "valor": 90372.09}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 800, "valor": 225040.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 90, "valor": 37290.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "CABLENA DO BRASIL LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 800, "valor": 68000.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 250, "valor": 24500.0}, "80x45": {"qtd": 150, "valor": 18150.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 47, "valor": 12925.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 34, "valor": 14110.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "CABR CABOS FABRICACAO DE FIOS CABOS E CONDUTORES ELETRICOS": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 20, "valor": 7700.0}, "125x80": {"qtd": 20, "valor": 7960.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 21, "valor": 14490.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS": {"50x25": {"qtd": 5085, "valor": 358492.65}, "65x25": {"qtd": 3435, "valor": 291859.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 1692, "valor": 164603.0}, "80x45": {"qtd": 874, "valor": 112637.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 130, "valor": 25558.0}, "100x60": {"qtd": 154, "valor": 21606.5}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 46, "valor": 16005.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 30, "valor": 2550.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 120, "valor": 11760.0}, "80x45": {"qtd": 60, "valor": 7320.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 110, "valor": 31790.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 8, "valor": 4760.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "COFIBAM CONDUTORES ELETRICOS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 100, "valor": 8350.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 50, "valor": 6015.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 35, "valor": 9572.5}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 25, "valor": 10312.5}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "CONDUFERES IND E COMERCIO DE CONDUTORES ELETRICOS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 50, "valor": 6050.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 20, "valor": 5460.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 2, "valor": 188.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 2, "valor": 220.0}, "80x60": {"qtd": 2, "valor": 339.8}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 2, "valor": 614.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 11, "valor": 5082.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 2035, "valor": 176772.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 1895, "valor": 185239.0}, "80x45": {"qtd": 315, "valor": 37800.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 235, "valor": 85775.0}, "110x60": {"qtd": 10, "valor": 3987.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 10, "valor": 4540.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "DIPRO DO BRASIL LTDA": {"50x25": {"qtd": 100, "valor": 7050.0}, "65x25": {"qtd": 50, "valor": 4250.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 25, "valor": 2437.5}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "EMPRESA BRASILEIRA DE LOCACAO DE EQUIPAMENTOS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 10, "valor": 993.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "ENGEPER ENGENHARIA E PERFURACOES LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 10, "valor": 2320.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA": {"50x25": {"qtd": 3109, "valor": 206475.8}, "65x25": {"qtd": 5471, "valor": 461306.81}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 5188, "valor": 484890.06}, "80x45": {"qtd": 3896, "valor": 457886.15}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 1879, "valor": 519865.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 710, "valor": 288937.2}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 5, "valor": 2550.0}, "150x80": {"qtd": 31, "valor": 23966.0}, "150x100": {"qtd": 2, "valor": 1740.0}, "170x80": {"qtd": 1, "valor": 880.0}}, "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 3602, "valor": 326430.2}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 3400, "valor": 337900.18}, "80x45": {"qtd": 3320, "valor": 410924.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 1335, "valor": 368510.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 10, "valor": 4350.0}, "125x70": {"qtd": 290, "valor": 113197.5}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "MMEDIATE COMERCIO DE FIOS E CABOS ESPECIAIS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 10, "valor": 1323.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "MPT FIOS E CABOS ESPECIAIS SA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 590, "valor": 80840.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 550, "valor": 50022.5}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 300, "valor": 31281.0}, "80x45": {"qtd": 200, "valor": 28034.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 20, "valor": 8845.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "PRONTO EXPRESS LOGISTICA SA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 20, "valor": 1880.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 100, "valor": 26800.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "PWS BRASIL COMERCIAL LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 22, "valor": 1977.14}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 44, "valor": 4535.52}, "80x45": {"qtd": 22, "valor": 3047.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 10, "valor": 2833.4}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 5, "valor": 2140.65}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "REICHLE & DEMASSARI COMERCIO E INDUSTRIA LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 964, "valor": 100966.0}, "65x45": {"qtd": 100, "valor": 9400.06}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "SANTA LUIZA CONDUTORES ELETRICOS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 200, "valor": 17000.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA": {"50x25": {"qtd": 300, "valor": 20400.0}, "65x25": {"qtd": 501, "valor": 51500.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 150, "valor": 16050.0}, "80x45": {"qtd": 80, "valor": 11600.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 30, "valor": 14040.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "SPARFLEX FIOS E CABOS ESPECIAIS LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 50, "valor": 4200.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 136, "valor": 13368.8}, "80x45": {"qtd": 50, "valor": 6025.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 14, "valor": 3850.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD": {"50x25": {"qtd": 180, "valor": 12960.0}, "65x25": {"qtd": 430, "valor": 36550.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 310, "valor": 30380.0}, "80x45": {"qtd": 110, "valor": 13420.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 116, "valor": 45494.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 31, "valor": 13902.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 4, "valor": 2760.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "SUPPLIES EPIS SOLUCOES EM MRO LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 0, "valor": 0.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 40, "valor": 22480.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 20, "valor": 20100.0}}, "UNIC DISTRIBUIDORA LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 590, "valor": 61950.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 1112, "valor": 113051.2}, "80x45": {"qtd": 1071, "valor": 144450.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 255, "valor": 81855.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 83, "valor": 36852.0}, "125x70": {"qtd": 7, "valor": 3108.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 2, "valor": 888.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}, "VIMACOM INDUSTRIA E COMERCIO LTDA": {"50x25": {"qtd": 0, "valor": 0.0}, "65x25": {"qtd": 0, "valor": 0.0}, "65x40": {"qtd": 0, "valor": 0.0}, "65x45": {"qtd": 0, "valor": 0.0}, "80x45": {"qtd": 0, "valor": 0.0}, "80x60": {"qtd": 0, "valor": 0.0}, "90x60": {"qtd": 0, "valor": 0.0}, "100x60": {"qtd": 12, "valor": 4440.0}, "110x60": {"qtd": 0, "valor": 0.0}, "125x60": {"qtd": 0, "valor": 0.0}, "125x70": {"qtd": 0, "valor": 0.0}, "125x80": {"qtd": 0, "valor": 0.0}, "125x100": {"qtd": 0, "valor": 0.0}, "150x80": {"qtd": 0, "valor": 0.0}, "150x100": {"qtd": 0, "valor": 0.0}, "170x80": {"qtd": 0, "valor": 0.0}}}, "by_cliente": [{"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "valor": 2448497.02, "qtd": 20292, "n_notas": 159}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "valor": 1561311.88, "qtd": 11957, "n_notas": 100}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "valor": 990761.15, "qtd": 11416, "n_notas": 91}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "valor": 494113.0, "qtd": 4500, "n_notas": 27}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "valor": 458462.93, "qtd": 2850, "n_notas": 28}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "valor": 442154.2, "qtd": 3120, "n_notas": 25}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "valor": 155466.0, "qtd": 1181, "n_notas": 8}, {"cliente": "CABLENA DO BRASIL LTDA", "valor": 137685.0, "qtd": 1281, "n_notas": 6}, {"cliente": "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "valor": 118182.5, "qtd": 1070, "n_notas": 3}, {"cliente": "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA", "valor": 113590.0, "qtd": 1061, "n_notas": 4}, {"cliente": "REICHLE & DEMASSARI COMERCIO E INDUSTRIA LTDA", "valor": 110366.06, "qtd": 1064, "n_notas": 6}, {"cliente": "MPT FIOS E CABOS ESPECIAIS SA", "valor": 80840.0, "qtd": 590, "n_notas": 4}, {"cliente": "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "valor": 58180.0, "qtd": 328, "n_notas": 4}, {"cliente": "SUPPLIES EPIS SOLUCOES EM MRO LTDA", "valor": 42580.0, "qtd": 60, "n_notas": 1}, {"cliente": "COFIBAM CONDUTORES ELETRICOS LTDA", "valor": 34250.0, "qtd": 210, "n_notas": 3}, {"cliente": "CABR CABOS FABRICACAO DE FIOS CABOS E CONDUTORES ELETRICOS", "valor": 30150.0, "qtd": 61, "n_notas": 2}, {"cliente": "PRONTO EXPRESS LOGISTICA SA", "valor": 28680.0, "qtd": 120, "n_notas": 1}, {"cliente": "SPARFLEX FIOS E CABOS ESPECIAIS LTDA", "valor": 27443.8, "qtd": 250, "n_notas": 1}, {"cliente": "BRASFIO INDUSTRIA E COMERCIO NORDESTE LTDA", "valor": 26241.0, "qtd": 90, "n_notas": 1}, {"cliente": "SANTA LUIZA CONDUTORES ELETRICOS LTDA", "valor": 17000.0, "qtd": 200, "n_notas": 1}, {"cliente": "PWS BRASIL COMERCIAL LTDA", "valor": 14533.71, "qtd": 103, "n_notas": 1}, {"cliente": "DIPRO DO BRASIL LTDA", "valor": 13737.5, "qtd": 175, "n_notas": 1}, {"cliente": "CONDUFERES IND E COMERCIO DE CONDUTORES ELETRICOS LTDA", "valor": 11510.0, "qtd": 70, "n_notas": 1}, {"cliente": "AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA", "valor": 10758.0, "qtd": 99, "n_notas": 1}, {"cliente": "CABEL IND COM DE CONDUTORES ELETRICOS LTDA", "valor": 8670.0, "qtd": 30, "n_notas": 1}, {"cliente": "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA", "valor": 6443.8, "qtd": 19, "n_notas": 1}, {"cliente": "VIMACOM INDUSTRIA E COMERCIO LTDA", "valor": 4440.0, "qtd": 12, "n_notas": 1}, {"cliente": "ENGEPER ENGENHARIA E PERFURACOES LTDA", "valor": 2320.0, "qtd": 10, "n_notas": 2}, {"cliente": "MMEDIATE COMERCIO DE FIOS E CABOS ESPECIAIS LTDA", "valor": 1323.0, "qtd": 10, "n_notas": 1}, {"cliente": "EMPRESA BRASILEIRA DE LOCACAO DE EQUIPAMENTOS LTDA", "valor": 993.0, "qtd": 10, "n_notas": 1}], "total_valor": 7450683.55, "total_qtd": 62239, "total_clientes": 30, "total_notas": 486}
+const DATA = {"records": [{"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "65x25", "ano": 2026, "qtd": 1720, "valor": 146200.0}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "50x25", "ano": 2026, "qtd": 3390, "valor": 238995.06}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "65x45", "ano": 2026, "qtd": 757, "valor": 73807.5}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "80x45", "ano": 2026, "qtd": 451, "valor": 59081.0}, {"cliente": "PWS BRASIL COMERCIAL LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 22, "valor": 1977.14}, {"cliente": "PWS BRASIL COMERCIAL LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 44, "valor": 4535.52}, {"cliente": "PWS BRASIL COMERCIAL LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 22, "valor": 3047.0}, {"cliente": "PWS BRASIL COMERCIAL LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 10, "valor": 2833.4}, {"cliente": "PWS BRASIL COMERCIAL LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 5, "valor": 2140.65}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 810, "valor": 70280.0}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 660, "valor": 63950.0}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 335, "valor": 95075.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "50x25", "ano": 2026, "qtd": 709, "valor": 44667.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 1150, "valor": 107600.06}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 230, "valor": 62790.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 155, "valor": 55025.0}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 335, "valor": 28225.0}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 400, "valor": 38570.63}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 555, "valor": 65487.09}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 520, "valor": 148040.0}, {"cliente": "CONDUFERES IND E COMERCIO DE CONDUTORES ELETRICOS LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 50, "valor": 6050.0}, {"cliente": "CONDUFERES IND E COMERCIO DE CONDUTORES ELETRICOS LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 20, "valor": 5460.0}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 830, "valor": 105165.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 711, "valor": 82715.6}, {"cliente": "VIMACOM INDUSTRIA E COMERCIO LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 12, "valor": 4440.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "65x25", "ano": 2025, "qtd": 1125, "valor": 99695.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "65x45", "ano": 2025, "qtd": 1060, "valor": 104745.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "80x45", "ano": 2025, "qtd": 185, "valor": 22200.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "100x60", "ano": 2025, "qtd": 80, "valor": 29200.0}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "80x45", "ano": 2025, "qtd": 2490, "valor": 305759.0}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "65x25", "ano": 2025, "qtd": 180, "valor": 14850.0}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "65x45", "ano": 2025, "qtd": 265, "valor": 24115.21}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "80x45", "ano": 2025, "qtd": 225, "valor": 24885.0}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "100x60", "ano": 2025, "qtd": 280, "valor": 77000.0}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "65x25", "ano": 2025, "qtd": 2792, "valor": 256150.2}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "65x45", "ano": 2025, "qtd": 2740, "valor": 273950.18}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "100x60", "ano": 2025, "qtd": 1000, "valor": 273435.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "125x70", "ano": 2025, "qtd": 470, "valor": 197641.2}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "150x80", "ano": 2025, "qtd": 21, "valor": 15959.4}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "50x25", "ano": 2025, "qtd": 2300, "valor": 155112.8}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "80x45", "ano": 2025, "qtd": 2845, "valor": 335383.05}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "100x60", "ano": 2025, "qtd": 1409, "valor": 387232.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "65x25", "ano": 2025, "qtd": 3971, "valor": 334285.7}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "50x25", "ano": 2025, "qtd": 1695, "valor": 119497.59}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "65x25", "ano": 2025, "qtd": 1715, "valor": 145659.0}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "65x45", "ano": 2025, "qtd": 935, "valor": 90795.5}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "80x45", "ano": 2025, "qtd": 423, "valor": 53556.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "65x45", "ano": 2025, "qtd": 3678, "valor": 344099.6}, {"cliente": "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "tamanho": "125x70", "ano": 2025, "qtd": 4, "valor": 2380.0}, {"cliente": "REICHLE & DEMASSARI COMERCIO E INDUSTRIA LTDA", "tamanho": "65x40", "ano": 2025, "qtd": 714, "valor": 74256.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "65x25", "ano": 2025, "qtd": 410, "valor": 34850.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "65x45", "ano": 2025, "qtd": 130, "valor": 12740.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "80x45", "ano": 2025, "qtd": 70, "valor": 8470.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "100x60", "ano": 2025, "qtd": 70, "valor": 32200.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "125x70", "ano": 2025, "qtd": 10, "valor": 5250.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "150x80", "ano": 2025, "qtd": 4, "valor": 2760.0}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "125x70", "ano": 2025, "qtd": 200, "valor": 75157.5}, {"cliente": "CABR CABOS FABRICACAO DE FIOS CABOS E CONDUTORES ELETRICOS", "tamanho": "150x80", "ano": 2025, "qtd": 21, "valor": 14490.0}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "125x70", "ano": 2025, "qtd": 10, "valor": 3730.0}, {"cliente": "CABR CABOS FABRICACAO DE FIOS CABOS E CONDUTORES ELETRICOS", "tamanho": "125x70", "ano": 2025, "qtd": 20, "valor": 7700.0}, {"cliente": "CABR CABOS FABRICACAO DE FIOS CABOS E CONDUTORES ELETRICOS", "tamanho": "125x80", "ano": 2025, "qtd": 20, "valor": 7960.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "125x70", "ano": 2025, "qtd": 4, "valor": 1660.0}, {"cliente": "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "tamanho": "65x25", "ano": 2025, "qtd": 350, "valor": 31832.5}, {"cliente": "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "tamanho": "65x45", "ano": 2025, "qtd": 100, "valor": 10415.0}, {"cliente": "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "tamanho": "80x45", "ano": 2025, "qtd": 100, "valor": 14017.0}, {"cliente": "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "tamanho": "125x70", "ano": 2025, "qtd": 20, "valor": 8845.0}, {"cliente": "ENGEPER ENGENHARIA E PERFURACOES LTDA", "tamanho": "100x60", "ano": 2025, "qtd": 6, "valor": 1320.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 700, "valor": 57680.01}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "150x80", "ano": 2026, "qtd": 10, "valor": 8006.6}, {"cliente": "SUPPLIES EPIS SOLUCOES EM MRO LTDA", "tamanho": "125x100", "ano": 2026, "qtd": 40, "valor": 22480.0}, {"cliente": "SUPPLIES EPIS SOLUCOES EM MRO LTDA", "tamanho": "170x80", "ano": 2026, "qtd": 20, "valor": 20100.0}, {"cliente": "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 80, "valor": 33560.0}, {"cliente": "MPT FIOS E CABOS ESPECIAIS SA", "tamanho": "65x45", "ano": 2026, "qtd": 590, "valor": 80840.0}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 90, "valor": 38040.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "65x25", "ano": 2026, "qtd": 910, "valor": 77077.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "65x45", "ano": 2026, "qtd": 835, "valor": 80494.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "80x45", "ano": 2026, "qtd": 130, "valor": 15600.0}, {"cliente": "REICHLE & DEMASSARI COMERCIO E INDUSTRIA LTDA", "tamanho": "65x40", "ano": 2026, "qtd": 250, "valor": 26710.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 390, "valor": 33150.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 120, "valor": 11760.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 80, "valor": 9680.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 37, "valor": 10175.0}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 30, "valor": 12450.0}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "100x60", "ano": 2026, "qtd": 4, "valor": 1094.0}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "125x70", "ano": 2026, "qtd": 26, "valor": 11835.0}, {"cliente": "AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 5, "valor": 425.0}, {"cliente": "AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 87, "valor": 8482.5}, {"cliente": "AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA", "tamanho": "50x25", "ano": 2026, "qtd": 1, "valor": 70.5}, {"cliente": "AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 5, "valor": 1367.5}, {"cliente": "AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 1, "valor": 412.5}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "100x60", "ano": 2026, "qtd": 155, "valor": 56575.0}, {"cliente": "SPARFLEX FIOS E CABOS ESPECIAIS LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 50, "valor": 4200.0}, {"cliente": "SPARFLEX FIOS E CABOS ESPECIAIS LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 136, "valor": 13368.8}, {"cliente": "SPARFLEX FIOS E CABOS ESPECIAIS LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 50, "valor": 6025.0}, {"cliente": "SPARFLEX FIOS E CABOS ESPECIAIS LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 14, "valor": 3850.0}, {"cliente": "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "tamanho": "65x25", "ano": 2026, "qtd": 200, "valor": 18190.0}, {"cliente": "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "tamanho": "65x45", "ano": 2026, "qtd": 200, "valor": 20866.0}, {"cliente": "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "tamanho": "80x45", "ano": 2026, "qtd": 100, "valor": 14017.0}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "90x60", "ano": 2026, "qtd": 30, "valor": 5898.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "50x25", "ano": 2026, "qtd": 180, "valor": 12960.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "65x25", "ano": 2026, "qtd": 430, "valor": 36550.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "65x45", "ano": 2026, "qtd": 310, "valor": 30380.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "80x45", "ano": 2026, "qtd": 110, "valor": 13420.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "125x70", "ano": 2026, "qtd": 21, "valor": 8652.0}, {"cliente": "SANTA LUIZA CONDUTORES ELETRICOS LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 200, "valor": 17000.0}, {"cliente": "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 501, "valor": 51500.0}, {"cliente": "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 150, "valor": 16050.0}, {"cliente": "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 80, "valor": 11600.0}, {"cliente": "EMPRESA BRASILEIRA DE LOCACAO DE EQUIPAMENTOS LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 10, "valor": 993.0}, {"cliente": "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 110, "valor": 31790.0}, {"cliente": "CABEL IND COM DE CONDUTORES ELETRICOS LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 30, "valor": 8670.0}, {"cliente": "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "tamanho": "100x60", "ano": 2026, "qtd": 46, "valor": 13294.0}, {"cliente": "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 4, "valor": 2380.0}, {"cliente": "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 60, "valor": 7320.0}, {"cliente": "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "tamanho": "65x45", "ano": 2026, "qtd": 120, "valor": 11760.0}, {"cliente": "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "tamanho": "65x25", "ano": 2026, "qtd": 30, "valor": 2550.0}, {"cliente": "ENGEPER ENGENHARIA E PERFURACOES LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 4, "valor": 1000.0}, {"cliente": "BRASFIO INDUSTRIA E COMERCIO NORDESTE LTDA", "tamanho": "80x45", "ano": 2026, "qtd": 30, "valor": 4206.0}, {"cliente": "BRASFIO INDUSTRIA E COMERCIO NORDESTE LTDA", "tamanho": "100x60", "ano": 2026, "qtd": 30, "valor": 8775.0}, {"cliente": "BRASFIO INDUSTRIA E COMERCIO NORDESTE LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 30, "valor": 13260.0}, {"cliente": "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "tamanho": "125x60", "ano": 2026, "qtd": 10, "valor": 4350.0}, {"cliente": "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA", "tamanho": "50x25", "ano": 2026, "qtd": 300, "valor": 20400.0}, {"cliente": "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA", "tamanho": "125x70", "ano": 2026, "qtd": 30, "valor": 14040.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "110x60", "ano": 2026, "qtd": 10, "valor": 3987.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "125x70", "ano": 2026, "qtd": 5, "valor": 2490.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "65x25", "ano": 2024, "qtd": 430, "valor": 45150.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "65x45", "ano": 2024, "qtd": 912, "valor": 91251.2}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "80x45", "ano": 2024, "qtd": 871, "valor": 117450.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "100x60", "ano": 2024, "qtd": 225, "valor": 72225.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "125x100", "ano": 2024, "qtd": 2, "valor": 888.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "65x25", "ano": 2024, "qtd": 800, "valor": 69341.1}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "65x45", "ano": 2024, "qtd": 360, "valor": 33190.4}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "80x45", "ano": 2024, "qtd": 340, "valor": 39787.5}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "100x60", "ano": 2024, "qtd": 240, "valor": 69843.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "125x70", "ano": 2024, "qtd": 85, "valor": 36271.0}, {"cliente": "MMEDIATE COMERCIO DE FIOS E CABOS ESPECIAIS LTDA", "tamanho": "80x45", "ano": 2024, "qtd": 10, "valor": 1323.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "125x70", "ano": 2024, "qtd": 7, "valor": 3108.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "125x60", "ano": 2024, "qtd": 63, "valor": 27972.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "50x25", "ano": 2024, "qtd": 100, "valor": 6696.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "80x45", "ano": 2025, "qtd": 200, "valor": 27000.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "100x60", "ano": 2025, "qtd": 30, "valor": 9630.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "125x60", "ano": 2025, "qtd": 20, "valor": 8880.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "65x25", "ano": 2025, "qtd": 160, "valor": 16800.0}, {"cliente": "UNIC DISTRIBUIDORA LTDA", "tamanho": "65x45", "ano": 2025, "qtd": 200, "valor": 21800.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "125x100", "ano": 2025, "qtd": 5, "valor": 2550.0}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "90x60", "ano": 2025, "qtd": 100, "valor": 19660.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "150x100", "ano": 2025, "qtd": 2, "valor": 1740.0}, {"cliente": "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA", "tamanho": "65x25", "ano": 2025, "qtd": 2, "valor": 188.0}, {"cliente": "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA", "tamanho": "80x45", "ano": 2025, "qtd": 2, "valor": 220.0}, {"cliente": "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA", "tamanho": "80x60", "ano": 2025, "qtd": 2, "valor": 339.8}, {"cliente": "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA", "tamanho": "100x60", "ano": 2025, "qtd": 2, "valor": 614.0}, {"cliente": "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA", "tamanho": "125x70", "ano": 2025, "qtd": 11, "valor": 5082.0}, {"cliente": "PRONTO EXPRESS LOGISTICA SA", "tamanho": "65x25", "ano": 2025, "qtd": 20, "valor": 1880.0}, {"cliente": "PRONTO EXPRESS LOGISTICA SA", "tamanho": "100x60", "ano": 2025, "qtd": 100, "valor": 26800.0}, {"cliente": "COFIBAM CONDUTORES ELETRICOS LTDA", "tamanho": "65x25", "ano": 2025, "qtd": 100, "valor": 8350.0}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "100x60", "ano": 2025, "qtd": 150, "valor": 20512.5}, {"cliente": "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "tamanho": "125x70", "ano": 2025, "qtd": 20, "valor": 4170.0}, {"cliente": "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "tamanho": "170x80", "ano": 2025, "qtd": 1, "valor": 880.0}, {"cliente": "COFIBAM CONDUTORES ELETRICOS LTDA", "tamanho": "100x60", "ano": 2025, "qtd": 35, "valor": 9572.5}, {"cliente": "COFIBAM CONDUTORES ELETRICOS LTDA", "tamanho": "125x70", "ano": 2025, "qtd": 25, "valor": 10312.5}, {"cliente": "COFIBAM CONDUTORES ELETRICOS LTDA", "tamanho": "80x45", "ano": 2025, "qtd": 50, "valor": 6015.0}, {"cliente": "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "tamanho": "125x70", "ano": 2025, "qtd": 5, "valor": 2050.0}, {"cliente": "DIPRO DO BRASIL LTDA", "tamanho": "50x25", "ano": 2025, "qtd": 100, "valor": 7050.0}, {"cliente": "DIPRO DO BRASIL LTDA", "tamanho": "65x25", "ano": 2025, "qtd": 50, "valor": 4250.0}, {"cliente": "DIPRO DO BRASIL LTDA", "tamanho": "65x45", "ano": 2025, "qtd": 25, "valor": 2437.5}, {"cliente": "REICHLE & DEMASSARI COMERCIO E INDUSTRIA LTDA", "tamanho": "65x45", "ano": 2025, "qtd": 100, "valor": 9400.06}, {"cliente": "CABLENA DO BRASIL LTDA", "tamanho": "100x60", "ano": 2025, "qtd": 10, "valor": 2750.0}], "clientes": ["AEA DISTRIBUIDORA DE MATERIAIS ELETRICOS LTDA", "BRASFIO INDUSTRIA E COMERCIO NORDESTE LTDA", "CABEL IND COM DE CONDUTORES ELETRICOS LTDA", "CABEXPRESS INDUSTRIA E COMERCIO DE CABOS ELETRICOS LTDA", "CABLENA DO BRASIL LTDA", "CABR CABOS FABRICACAO DE FIOS CABOS E CONDUTORES ELETRICOS", "COBREFLEX INDUSTRIA DISTRIBUICAO E COMERCIO DE FIOS E CABOS", "COBREFORT INDUSTRIA E COMERCIO DE FIOS E CABOS LTDA", "COFIBAM CONDUTORES ELETRICOS LTDA", "CONDUFERES IND E COMERCIO DE CONDUTORES ELETRICOS LTDA", "CONDUMIG INDUSTRIA DE CONDUTORES ELETRICOS MINAS GERAIS SA", "CONDVOLT INDUSTRIA DE CONDUTORES ELETRICOS SA", "DIPRO DO BRASIL LTDA", "EMPRESA BRASILEIRA DE LOCACAO DE EQUIPAMENTOS LTDA", "ENGEPER ENGENHARIA E PERFURACOES LTDA", "IBRAC INDUSTRIA BRASILEIRA DE CONDUTORES LTDA", "MG INDUSTRIA E DISTRIBUICAO DE MATERIAIS ELETRICOS LTDA", "MMEDIATE COMERCIO DE FIOS E CABOS ESPECIAIS LTDA", "MPT FIOS E CABOS ESPECIAIS SA", "NEXER INDUSTRIA DISTRIBUICAO E COMERCIO DE CONDUTORES ELETRI", "PRONTO EXPRESS LOGISTICA SA", "PWS BRASIL COMERCIAL LTDA", "REICHLE & DEMASSARI COMERCIO E INDUSTRIA LTDA", "SANTA LUIZA CONDUTORES ELETRICOS LTDA", "SIVA INDUSTRIA E COMERCIO DE ARTEFATOS DE ARAME E ACO LTDA", "SPARFLEX FIOS E CABOS ESPECIAIS LTDA", "STAR BRAZIL INDUSTRIA E COMERCIO DE CONDUTORES ELETRICOS LTD", "SUPPLIES EPIS SOLUCOES EM MRO LTDA", "UNIC DISTRIBUIDORA LTDA", "VIMACOM INDUSTRIA E COMERCIO LTDA"], "tamanhos": ["50x25", "65x25", "65x40", "65x45", "80x45", "80x60", "90x60", "100x60", "110x60", "125x60", "125x70", "125x80", "125x100", "150x80", "150x100", "170x80"], "anos": [2024, 2025, 2026], "total_valor": 7450683.55, "total_qtd": 62239, "total_clientes": 30, "total_notas": 486}
 ;
 
 const fmtMoney = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR', {minimumFractionDigits:0, maximumFractionDigits:0});
 const fmtInt = v => Math.round(v).toLocaleString('pt-BR');
 
-let state = { cliente: '', tamanho: '' };
+// ---- Global state per panel ----
+let stateP1 = { tamanho: '' };
+let stateP2 = { cliente: '', anos: new Set(DATA.anos) };       // anos: empty set behaves as "all" via helper
+let stateP3 = { clientes: new Set(), anos: new Set(DATA.anos) };
 
 function colorForIndex(i, total){
   const t = i / Math.max(1,total-1);
@@ -274,211 +330,291 @@ function colorForIndex(i, total){
   return `rgb(${r},${g},${b})`;
 }
 
-function init(){
-  const selCliente = document.getElementById('filterCliente');
-  DATA.clientes.forEach(c=>{
-    const opt = document.createElement('option');
-    opt.value = c; opt.textContent = c;
-    selCliente.appendChild(opt);
+// ---- Core aggregation over the granular records ----
+// record: {cliente, tamanho, ano, qtd, valor}
+function filterRecords({cliente=null, clientes=null, tamanho=null, anos=null}={}){
+  return DATA.records.filter(r=>{
+    if(cliente && r.cliente !== cliente) return false;
+    if(clientes && clientes.size>0 && !clientes.has(r.cliente)) return false;
+    if(tamanho && r.tamanho !== tamanho) return false;
+    if(anos && anos.size>0 && anos.size<DATA.anos.length && !anos.has(r.ano)) return false;
+    return true;
   });
+}
 
+function sumQtdValor(records){
+  let qtd=0, valor=0;
+  records.forEach(r=>{ qtd+=r.qtd; valor+=r.valor; });
+  return {qtd, valor};
+}
+
+function init(){
+  // Header stats are always the grand total (context anchor)
+  document.getElementById('statValor').textContent = fmtMoney(DATA.total_valor);
+  document.getElementById('statQtd').textContent = fmtInt(DATA.total_qtd);
+  document.getElementById('statClientes').textContent = DATA.total_clientes;
+
+  // --- Panel 1 filter ---
   const selTamanho = document.getElementById('filterTamanho');
   DATA.tamanhos.forEach(t=>{
     const opt = document.createElement('option');
     opt.value = t; opt.textContent = t + ' cm';
     selTamanho.appendChild(opt);
   });
-
-  selCliente.addEventListener('change', e=>{ state.cliente = e.target.value; render(); });
-  selTamanho.addEventListener('change', e=>{ state.tamanho = e.target.value; render(); });
-  document.getElementById('resetBtn').addEventListener('click', ()=>{
-    state = {cliente:'', tamanho:''};
-    selCliente.value=''; selTamanho.value='';
-    render();
+  selTamanho.addEventListener('change', e=>{ stateP1.tamanho = e.target.value; renderPanel1(); });
+  document.getElementById('resetTamanhoBtn').addEventListener('click', ()=>{
+    stateP1.tamanho=''; selTamanho.value=''; renderPanel1();
   });
 
-  render();
-}
+  // --- Panel 2 filters ---
+  const selClienteP2 = document.getElementById('filterClienteP2');
+  DATA.clientes.forEach(c=>{
+    const opt = document.createElement('option');
+    opt.value = c; opt.textContent = c;
+    selClienteP2.appendChild(opt);
+  });
+  selClienteP2.addEventListener('change', e=>{ stateP2.cliente = e.target.value; renderPanel2(); });
 
-// ---- Core data accessors ----
+  const yearTogglesP2 = document.getElementById('yearTogglesP2');
+  DATA.anos.forEach(ano=>{
+    const pill = document.createElement('span');
+    pill.className = 'year-pill active';
+    pill.textContent = ano;
+    pill.dataset.ano = ano;
+    pill.addEventListener('click', ()=>{
+      toggleYear(stateP2.anos, ano, pill, yearTogglesP2);
+      renderPanel2();
+    });
+    yearTogglesP2.appendChild(pill);
+  });
 
-// Returns {qtd, valor} for a given client + size combo (uses precomputed matrix)
-function getCell(cliente, tamanho){
-  const m = DATA.cliente_tamanho_matrix[cliente];
-  if(!m) return {qtd:0, valor:0};
-  return m[tamanho] || {qtd:0, valor:0};
-}
+  document.getElementById('resetP2Btn').addEventListener('click', ()=>{
+    stateP2.cliente=''; selClienteP2.value='';
+    stateP2.anos = new Set(DATA.anos);
+    syncYearPills(yearTogglesP2, stateP2.anos);
+    renderPanel2();
+  });
 
-// Totals for current filter combination (drives header stats)
-function getFilteredTotals(){
-  if(state.cliente && state.tamanho){
-    return getCell(state.cliente, state.tamanho);
+  // --- Panel 3 filters ---
+  const msBox = document.getElementById('msBox');
+  const msDropdown = document.getElementById('msDropdown');
+  DATA.clientes.forEach(c=>{
+    const opt = document.createElement('div');
+    opt.className = 'ms-option';
+    const id = 'ms_'+c.replace(/[^a-zA-Z0-9]/g,'_').slice(0,40)+'_'+Math.random().toString(36).slice(2,6);
+    opt.innerHTML = `<input type="checkbox" id="${id}"> <label for="${id}">${c}</label>`;
+    const checkbox = opt.querySelector('input');
+    checkbox.addEventListener('change', ()=>{
+      if(checkbox.checked) stateP3.clientes.add(c); else stateP3.clientes.delete(c);
+      opt.classList.toggle('checked', checkbox.checked);
+      updateMsBoxLabel();
+      renderPanel3();
+    });
+    opt.addEventListener('click', (e)=>{
+      if(e.target.tagName !== 'INPUT'){ checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('change')); }
+    });
+    msDropdown.appendChild(opt);
+  });
+  msBox.addEventListener('click', ()=> msDropdown.classList.toggle('hidden'));
+  document.addEventListener('click', (e)=>{
+    if(!msBox.contains(e.target) && !msDropdown.contains(e.target)) msDropdown.classList.add('hidden');
+  });
+
+  const yearTogglesP3 = document.getElementById('yearTogglesP3');
+  DATA.anos.forEach(ano=>{
+    const pill = document.createElement('span');
+    pill.className = 'year-pill active';
+    pill.textContent = ano;
+    pill.dataset.ano = ano;
+    pill.addEventListener('click', ()=>{
+      toggleYear(stateP3.anos, ano, pill, yearTogglesP3);
+      renderPanel3();
+    });
+    yearTogglesP3.appendChild(pill);
+  });
+
+  document.getElementById('resetP3Btn').addEventListener('click', ()=>{
+    stateP3.clientes = new Set();
+    msDropdown.querySelectorAll('input').forEach(cb=>{cb.checked=false;});
+    msDropdown.querySelectorAll('.ms-option').forEach(o=>o.classList.remove('checked'));
+    updateMsBoxLabel();
+    stateP3.anos = new Set(DATA.anos);
+    syncYearPills(yearTogglesP3, stateP3.anos);
+    renderPanel3();
+  });
+
+  function updateMsBoxLabel(){
+    const lbl = document.getElementById('msBoxLabel');
+    if(stateP3.clientes.size === 0) lbl.textContent = 'Todos os clientes';
+    else if(stateP3.clientes.size === 1) lbl.textContent = [...stateP3.clientes][0].slice(0,32);
+    else lbl.textContent = `${stateP3.clientes.size} clientes selecionados`;
   }
-  if(state.cliente && !state.tamanho){
-    const row = DATA.by_cliente.find(c=>c.cliente===state.cliente);
-    return row ? {qtd:row.qtd, valor:row.valor} : {qtd:0,valor:0};
-  }
-  if(!state.cliente && state.tamanho){
-    const row = DATA.by_size.find(s=>s.tamanho===state.tamanho);
-    return row ? {qtd:row.qtd, valor:row.valor} : {qtd:0,valor:0};
-  }
-  return {qtd: DATA.total_qtd, valor: DATA.total_valor};
+
+  renderPanel1();
+  renderPanel2();
+  renderPanel3();
 }
 
-function computeSizeTotals(){
-  // qty + valor by size, respecting cliente filter
-  if(!state.cliente){
-    return DATA.by_size.map(s=>({tamanho:s.tamanho, qtd:s.qtd, valor:s.valor}));
-  }
-  return DATA.tamanhos
-    .map(t=>{ const cell = getCell(state.cliente, t); return {tamanho:t, qtd:cell.qtd, valor:cell.valor}; })
-    .filter(s=>s.qtd>0)
-    .sort((a,b)=>b.qtd-a.qtd);
-}
-
-function computeClientTotals(){
-  // list of {cliente, qtd, valor} respecting tamanho filter
-  if(!state.tamanho){
-    return DATA.by_cliente.map(c=>({cliente:c.cliente, qtd:c.qtd, valor:c.valor}));
-  }
-  return DATA.clientes
-    .map(c=>{ const cell = getCell(c, state.tamanho); return {cliente:c, qtd:cell.qtd, valor:cell.valor}; })
-    .filter(r=>r.qtd>0)
-    .sort((a,b)=>b.valor-a.valor);
-}
-
-// ---- Render ----
-
-function render(){
-  renderHeaderStats();
-  renderSizeBars();
-  renderTable();
-  renderClientBars();
-  renderActivePill();
-}
-
-function renderHeaderStats(){
-  const totals = getFilteredTotals();
-  const anyFilter = !!(state.cliente || state.tamanho);
-  const valorEl = document.getElementById('statValor');
-  const qtdEl = document.getElementById('statQtd');
-  valorEl.textContent = fmtMoney(totals.valor);
-  qtdEl.textContent = fmtInt(totals.qtd);
-  valorEl.classList.toggle('is-filtered', anyFilter);
-  qtdEl.classList.toggle('is-filtered', anyFilter);
-
-  document.getElementById('statValorLabel').textContent = anyFilter ? 'Faturado (filtro)' : 'Faturado';
-  document.getElementById('statQtdLabel').textContent = anyFilter ? 'Bobinas (filtro)' : 'Bobinas';
-
-  // clients count: how many clients are represented in the current filter
-  let nClientes;
-  if(state.cliente){
-    nClientes = 1;
-  } else if(state.tamanho){
-    nClientes = computeClientTotals().length;
+function toggleYear(set, ano, pill, container){
+  // semantics: if all years active and user clicks one, isolate to that one;
+  // otherwise toggle membership; if it would become empty, reset to all.
+  const allActive = set.size === DATA.anos.length;
+  if(allActive){
+    set.clear();
+    set.add(ano);
+  } else if(set.has(ano)){
+    set.delete(ano);
+    if(set.size===0){ DATA.anos.forEach(a=>set.add(a)); }
   } else {
-    nClientes = DATA.total_clientes;
+    set.add(ano);
   }
-  document.getElementById('statClientes').textContent = nClientes;
+  syncYearPills(container, set);
 }
 
-function renderActivePill(){
-  const pill = document.getElementById('activePill');
-  let parts = [];
-  if(state.cliente) parts.push(`Cliente: <b>${state.cliente.slice(0,40)}</b>`);
-  if(state.tamanho) parts.push(`Tamanho: <b>${state.tamanho} cm</b>`);
-  pill.innerHTML = parts.length ? parts.join(' &nbsp;·&nbsp; ') : 'Sem filtros ativos';
-}
-
-function renderSizeBars(){
-  const data = computeSizeTotals();
-  const max = Math.max(...data.map(d=>d.qtd), 1);
-  const container = document.getElementById('sizeBars');
-  container.innerHTML = '';
-  data.forEach(d=>{
-    const row = document.createElement('div');
-    row.className = 'bar-row';
-    const pct = (d.qtd/max*100).toFixed(1);
-    row.innerHTML = `
-      <div class="lbl">${d.tamanho} cm</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div>
-        <div class="bar-val">${fmtInt(d.qtd)} un · ${fmtMoney(d.valor)}</div>
-      </div>`;
-    container.appendChild(row);
+function syncYearPills(container, set){
+  const allActive = set.size === DATA.anos.length || set.size===0;
+  container.querySelectorAll('.year-pill').forEach(p=>{
+    const ano = parseInt(p.dataset.ano);
+    p.classList.toggle('active', allActive || set.has(ano));
   });
-  document.getElementById('sizeSub').textContent = state.cliente
-    ? `Unidades vendidas para ${state.cliente.slice(0,50)}, por tamanho`
-    : 'Total de unidades vendidas, somando todas as notas fiscais';
-  document.getElementById('sizeFoot').textContent =
-    state.cliente ? `Mostrando apenas: ${state.cliente}` : `${data.length} tamanhos distintos no total`;
 }
 
-function renderTable(){
+// ================= PANEL 1 =================
+function renderPanel1(){
+  const container = document.getElementById('sizeBars');
+  const foot = document.getElementById('sizeFoot');
+
+  if(stateP1.tamanho){
+    // isolated detail view for a single size, across ALL clients/years
+    const recs = filterRecords({tamanho: stateP1.tamanho});
+    const totals = sumQtdValor(recs);
+    const nClientes = new Set(recs.map(r=>r.cliente)).size;
+    const precoMedio = totals.qtd>0 ? totals.valor/totals.qtd : 0;
+
+    container.innerHTML = `
+      <div class="single-size-card">
+        <div class="ssc-col">
+          <div class="ssc-number">${fmtInt(totals.qtd)}</div>
+          <div class="ssc-label">Unidades vendidas</div>
+        </div>
+        <div class="ssc-divider"></div>
+        <div class="ssc-col">
+          <div class="ssc-number">${fmtMoney(totals.valor)}</div>
+          <div class="ssc-label">Faturamento total</div>
+        </div>
+        <div class="ssc-divider"></div>
+        <div class="ssc-col">
+          <div class="ssc-number">${fmtMoney(precoMedio)}</div>
+          <div class="ssc-label">Preço médio / un.</div>
+        </div>
+        <div class="ssc-divider"></div>
+        <div class="ssc-col">
+          <div class="ssc-number">${nClientes}</div>
+          <div class="ssc-label">Clientes compradores</div>
+        </div>
+      </div>`;
+    foot.textContent = `Mostrando apenas o tamanho ${stateP1.tamanho} cm — todos os clientes e períodos`;
+  } else {
+    // comparative bars across all sizes
+    const bySize = {};
+    DATA.tamanhos.forEach(t=>bySize[t]={qtd:0,valor:0});
+    DATA.records.forEach(r=>{ bySize[r.tamanho].qtd+=r.qtd; bySize[r.tamanho].valor+=r.valor; });
+    const data = DATA.tamanhos.map(t=>({tamanho:t, ...bySize[t]})).sort((a,b)=>b.qtd-a.qtd);
+    const max = Math.max(...data.map(d=>d.qtd), 1);
+
+    container.innerHTML = '';
+    data.forEach(d=>{
+      const row = document.createElement('div');
+      row.className = 'bar-row';
+      const pct = (d.qtd/max*100).toFixed(1);
+      row.innerHTML = `
+        <div class="lbl">${d.tamanho} cm</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div>
+          <div class="bar-val">${fmtInt(d.qtd)} un · ${fmtMoney(d.valor)}</div>
+        </div>`;
+      container.appendChild(row);
+    });
+    foot.textContent = `${data.length} tamanhos distintos no total — selecione um para ver o detalhe`;
+  }
+}
+
+// ================= PANEL 2 =================
+function renderPanel2(){
   const head = document.getElementById('tableHead');
   const body = document.getElementById('tableBody');
+  const anos = stateP2.anos;
 
-  if(state.cliente){
+  if(stateP2.cliente){
     head.innerHTML = `<th>Tamanho</th><th class="num">Quantidade</th><th class="num">Valor (R$)</th>`;
-    const rows = DATA.tamanhos
-      .map(t=>{ const cell = getCell(state.cliente, t); return {t, q:cell.qtd, v:cell.valor}; })
-      .filter(r=>r.q>0).sort((a,b)=>b.q-a.q);
-    body.innerHTML = rows.map(r=>`<tr><td class="size-name">${r.t} cm</td><td class="num">${fmtInt(r.q)}</td><td class="num">${fmtMoney(r.v)}</td></tr>`).join('');
-    if(rows.length===0) body.innerHTML = `<tr><td colspan="3" style="color:var(--steel)">Sem compras registradas</td></tr>`;
+    const rows = DATA.tamanhos.map(t=>{
+      const recs = filterRecords({cliente: stateP2.cliente, tamanho:t, anos});
+      const tot = sumQtdValor(recs);
+      return {t, q:tot.qtd, v:tot.valor};
+    }).sort((a,b)=>b.q-a.q);
+    body.innerHTML = rows.map(r=>`<tr class="${r.q===0?'zero-row':''}"><td class="size-name">${r.t} cm</td><td class="num">${fmtInt(r.q)}</td><td class="num">${r.q>0?fmtMoney(r.v):'—'}</td></tr>`).join('');
   } else {
     head.innerHTML = `<th>Cliente</th><th class="num">Tamanhos comprados</th><th class="num">Total unidades</th>`;
     const rows = DATA.clientes.map(c=>{
-      let tamanhosComprados = 0, totalUnid = 0;
-      DATA.tamanhos.forEach(t=>{
-        const cell = getCell(c, t);
-        if(state.tamanho && t!==state.tamanho) return;
-        if(cell.qtd>0) tamanhosComprados++;
-        totalUnid += cell.qtd;
-      });
-      return {cliente:c, tamanhosComprados, totalUnid};
-    }).filter(r=> state.tamanho ? r.totalUnid>0 : true)
-      .sort((a,b)=>b.totalUnid-a.totalUnid);
-    body.innerHTML = rows.map(r=>`<tr><td>${r.cliente}</td><td class="num">${r.tamanhosComprados}</td><td class="num">${fmtInt(r.totalUnid)}</td></tr>`).join('');
+      const recs = filterRecords({cliente:c, anos});
+      const tamanhosComprados = new Set(recs.map(r=>r.tamanho)).size;
+      const tot = sumQtdValor(recs);
+      return {cliente:c, tamanhosComprados, totalUnid: tot.qtd};
+    }).sort((a,b)=>b.totalUnid-a.totalUnid);
+    body.innerHTML = rows.map(r=>`<tr class="${r.totalUnid===0?'zero-row':''}"><td>${r.cliente}</td><td class="num">${r.tamanhosComprados}</td><td class="num">${fmtInt(r.totalUnid)}</td></tr>`).join('');
   }
 }
 
-function renderClientBars(){
-  const data = computeClientTotals();
+// ================= PANEL 3/4 =================
+function renderPanel3(){
   const container = document.getElementById('clientBars');
-  container.innerHTML = '';
-  const max = Math.max(...data.map(d=>d.valor), 1);
-
   const badge = document.getElementById('clientsBadge');
   const title = document.getElementById('clientsTitle');
   const sub = document.getElementById('clientsSub');
-  if(state.tamanho){
-    badge.style.display = 'inline-block';
-    badge.textContent = `Tamanho ${state.tamanho} cm`;
-    title.textContent = `Faturamento por cliente — bobinas ${state.tamanho} cm`;
-    sub.textContent = 'Valor vendido apenas deste tamanho, por cliente, do que mais comprou para o que menos comprou';
-  } else {
-    badge.style.display = 'none';
-    title.textContent = 'Faturamento por cliente';
-    sub.textContent = 'Ordenado do que mais comprou para o que menos comprou — clique numa barra para detalhar nos painéis acima';
-  }
+  const legend = document.getElementById('clientsLegend');
+  const anos = stateP3.anos;
+  const isYearFiltered = anos.size>0 && anos.size<DATA.anos.length;
 
+  let clientList = stateP3.clientes.size>0 ? [...stateP3.clientes] : DATA.clientes;
+
+  const data = clientList.map(c=>{
+    const recs = filterRecords({cliente:c, anos});
+    const tot = sumQtdValor(recs);
+    return {cliente:c, qtd:tot.qtd, valor:tot.valor};
+  }).filter(d=>d.qtd>0 || stateP3.clientes.has(d.cliente))
+    .sort((a,b)=>b.valor-a.valor);
+
+  if(stateP3.clientes.size>0){
+    badge.style.display='inline-block';
+    badge.textContent = `${stateP3.clientes.size} cliente${stateP3.clientes.size>1?'s':''} selecionado${stateP3.clientes.size>1?'s':''}`;
+    title.textContent = 'Comparativo de faturamento entre clientes selecionados';
+    sub.textContent = isYearFiltered ? `Período filtrado: ${[...anos].sort().join(', ')}` : 'Todos os períodos';
+  } else {
+    badge.style.display = isYearFiltered ? 'inline-block' : 'none';
+    if(isYearFiltered) badge.textContent = `Período: ${[...anos].sort().join(', ')}`;
+    title.textContent = 'Faturamento por cliente';
+    sub.textContent = 'Ordenado do que mais comprou para o que menos comprou';
+  }
+  legend.textContent = stateP3.clientes.size>0
+    ? 'Clique no filtro de clientes para ajustar a seleção de comparação'
+    : 'Selecione clientes específicos no filtro acima para comparar apenas entre eles';
+
+  container.innerHTML = '';
+  const max = Math.max(...data.map(d=>d.valor), 1);
   data.forEach((d,i)=>{
     const row = document.createElement('div');
-    row.className = 'client-row' + (state.cliente===d.cliente ? ' selected' : '');
+    row.className = 'client-row' + (stateP3.clientes.has(d.cliente) ? ' highlighted' : '');
     const pct = (d.valor/max*100).toFixed(1);
-    const display = `${fmtMoney(d.valor)} · ${fmtInt(d.qtd)} un`;
     row.innerHTML = `
       <div class="rank">${i+1}</div>
       <div class="lbl" title="${d.cliente}">${d.cliente}</div>
       <div class="client-track"><div class="client-fill" style="width:${pct}%; background:${colorForIndex(i,data.length)}"></div>
-        <div class="client-val">${display}</div>
+        <div class="client-val">${fmtMoney(d.valor)} · ${fmtInt(d.qtd)} un</div>
       </div>`;
-    row.addEventListener('click', ()=>{
-      state.cliente = (state.cliente === d.cliente) ? '' : d.cliente;
-      document.getElementById('filterCliente').value = state.cliente;
-      render();
-    });
     container.appendChild(row);
   });
+  if(data.length===0){
+    container.innerHTML = '<div class="legend-note">Nenhum dado para os filtros selecionados.</div>';
+  }
 }
 
 init();
