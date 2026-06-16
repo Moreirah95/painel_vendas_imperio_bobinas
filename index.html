@@ -1,4 +1,40 @@
-A  /* HEADER */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imperio das Bobinas — Painel de Vendas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Archivo+Narrow:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:        #1c1815;
+    --bg-panel:  #242019;
+    --bg-panel2: #2b2520;
+    --wood:      #b5703a;
+    --wood-light:#d99654;
+    --wood-dark: #7a4322;
+    --steel:     #8d9aa3;
+    --cream:     #ece4d6;
+    --cream-dim: #b9ac98;
+    --line:      #3a332b;
+    --good:      #7e9c6f;
+    --warn:      #c2553a;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:var(--bg); color:var(--cream); font-family:'Archivo Narrow','Segoe UI',Arial,sans-serif;}
+  body{
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(181,112,58,0.10), transparent),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 80px);
+    min-height:100vh;
+    padding:32px 28px 60px;
+  }
+
+  .wrap{max-width:1320px; margin:0 auto;}
+
+  /* HEADER */
   header{
     display:flex; justify-content:space-between; align-items:flex-end;
     border-bottom:2px solid var(--wood);
