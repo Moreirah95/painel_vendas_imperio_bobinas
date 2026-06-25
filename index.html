@@ -140,7 +140,9 @@
     min-width:180px; cursor:pointer;
   }
   select:focus{outline:2px solid var(--wood-light); outline-offset:1px;}
-  select option{background:var(--input-bg); color:var(--cream);}
+  /* Opções do menu nativo — cores explícitas por tema (options não herdam variáveis de forma confiável) */
+  select option{ background:#221e18; color:#ece4d6; }
+  body.light-mode select option{ background:#ffffff; color:#2a2018; }
   /* No modo claro, reforça bordas e contraste dos campos de filtro */
   body.light-mode select,
   body.light-mode .ms-box{ border-color:var(--wood); color:var(--cream); }
